@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <!-- <div class="welcomeText">
+        <h1>Welcome!</h1>
+    </div>
+    <div class="belowWelcome">
+        <p>enjoy your stay :)</p>
+    </div> -->
+    <div class="container">
+        <form class="formCont">
+            <div class="inputContainer">
+                <input id="usernameInp" placeholder="Username" class="inputField" type="text">
+            </div>
+            <div class="inputContainer">
+                <input id="passwordInp" placeholder="Password" type="text" class="inputField">
+            </div>
+            <div class="otherLinks">
+                <a href="/" class="link">Forgot password?</a>
+                <a href="/signup" class="link">Create Account</a>
+            </div>
+            <div class="submitDiv">
+                <button type="submit" class="submitBtn" id="submitBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const username = document.getElementById("usernameInp")
+        const password = document.getElementById("passwordInp")
+        const submit = document.getElementById("submitBtn")
+        const url = "http://localhost:3000/"
+
+        submit.addEventListener("click", enterData)
+
+        async function enterData(e){
+            e.preventDefault();
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value
+                })
+            })
+            if (response.ok) {
+                const data = await response.json()
+                window.alert(data.message)
+                return window.location = data.redirect
+            } else {
+                return window.alert("incorrect details")
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

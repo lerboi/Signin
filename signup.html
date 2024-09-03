@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="labelContainer">
+            <h1>Register</h1>
+        </div>
+        <form>
+            <div class="inputContainer">
+                <input id="usernameInp" placeholder="Username" class="inputField" type="text">
+            </div>
+            <div class="inputContainer">
+                <input id="passwordInp" placeholder="Password" type="text" class="inputField">
+            </div>
+            <div class="otherLinks">
+                <a href="/" class="link">Forgot password?</a>
+                <a href="/" class="link">Already have an account?</a>
+            </div>
+            <div class="submitDiv">
+                <button type="submit" class="submitBtn" id="submitBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const username = document.getElementById("usernameInp")
+        const password = document.getElementById("passwordInp")
+        const submit = document.getElementById("submitBtn")
+        const url = "http://localhost:3000/signup/"
+
+        submit.addEventListener("click", register)
+
+        async function register(e){
+            e.preventDefault()
+
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value
+                })
+            })
+
+            if (response.ok){
+                const redirect = await response.json()
+                window.alert("Account has been created")
+                return window.location = redirect.redirect
+            } else {window.alert("failed")}
+        }
+
+    </script>
+</body>
+</html>

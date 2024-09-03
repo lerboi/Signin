@@ -1,0 +1,118 @@
+*{
+    font-size: 1.1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    box-sizing: border-box;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #ff7e5f, #feb47b)
+}
+
+.welcomeText{
+    display:flex;
+    justify-content: flex;
+    align-items: center;
+    margin-top: 80px;
+    flex-direction: column;
+    height: 70px;
+}
+
+.belowWelcome{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+h1{
+    display:flex;
+    justify-content: flex;
+    align-items: center;
+    font-size: 2.3rem;
+    color: rgb(26, 26, 26);
+}
+.labelContainer{
+    position: relative;
+    top: 20px;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.container h1{
+    font-size: 2rem;
+}
+
+.formCont{
+    display: flex;
+}
+
+.container{
+    height: 540px;
+    width: 500px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px black solid;
+    border-radius: 20px;
+    margin: 50px auto;
+    background-color: bisque;
+    box-shadow: black 2px 4px;
+}
+
+.inputContainer{
+    background-color: bisque;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputField::placeholder{
+    font-size: small;
+    position:relative;
+    left: 0;
+}
+
+.inputField{
+    border: none;
+    border-radius: 20px;
+    background-color: azure;
+    padding: 10px 20px;
+}
+
+.inputField:active{
+    border: none;
+}
+
+.submitBtn{
+    margin: 15px 0;
+    border-radius: 20px;
+    border: none;
+    background-image: linear-gradient(to left, #ffad99, #feb47b);
+    color: black;
+    padding: 5px 50px;
+    transition: all 0.15s ease;
+}
+
+.submitBtn:hover{
+    color: white;
+}
+
+
+.otherLinks{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.link{
+    font-size: 0.8rem;
+    margin: 0 10px;
+}
+
+.submitDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
